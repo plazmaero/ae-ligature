@@ -1,0 +1,33 @@
+#include <iostream>
+#include <stdlib.h>
+
+using namespace std;
+
+int main()
+{
+    cout<<"Hello World\n";
+    int answer;
+    int guess;
+    int tries_left = 4;
+    bool guessed_or_not = false;
+    cout<<"Guess the number between 1 - 10\n";
+    srand(time(0));
+    answer = rand()%10;
+    while (guessed_or_not == false) {
+        cin>>guess;
+        if (guess == answer) {
+            cout<<"Correct!\n";
+            bool guessed_or_not = true;
+            return 0;
+        } else {
+            cout<<"Try again... you have " << tries_left << " tries left.\n";
+            tries_left --;
+            if (tries_left <= -1) {
+                cout<<"- G A M E  O V E R -\n";
+                cout<<"The answer was " << answer << ".";
+                return 0;
+                }
+            }
+        }
+    }
+
